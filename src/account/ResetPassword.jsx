@@ -63,15 +63,14 @@ function ResetPassword({ history }) {
         return (
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                 {({ errors, touched, isSubmitting }) => (
-                    <Form className="bg-white mx-auto mt-4 col-6">
+                    <Form className="col bg-white mx-auto px-4 round mt-4">
+                        <h4 className="font-weight-bold pt-3 text-blue">Reset Password</h4>
                         <div className="form-group">
-                            <label>Password</label>
-                            <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                            <Field name="password" type="password" placeholder="Password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                             <ErrorMessage name="password" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-group">
-                            <label>Confirm Password</label>
-                            <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
+                            <Field name="confirmPassword" type="password" placeholder="Confirm Password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
                             <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
                         </div>
                         <div className="form-row">
@@ -80,7 +79,7 @@ function ResetPassword({ history }) {
                                     {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                     Reset Password
                                 </button>
-                                <Link to="login" className="btn btn-link">Cancel</Link>
+                                <Link to="login" className="btn btn-link">Back to Login</Link>
                             </div>
                         </div>
                     </Form>
@@ -101,9 +100,14 @@ function ResetPassword({ history }) {
     }
 
     return (
-        <div>
-            <h3 className="card-header">Reset Password</h3>
-            <div className="card-body">{getBody()}</div>
+        <div className="container reset-password mx-auto round">
+            <div className=" px-3 row">
+                <div className="d-none d-md-block col-6 my-auto">
+                    <h2 className="font-weight-bold">Reset Password</h2>
+                </div>
+                <div className="col-6 mt-5 card-body d-none d-md-block">{getBody()}</div>
+                <div className="col mt-5 card-body d-md-none">{getBody()}</div>
+            </div>
         </div>
     )
 }
