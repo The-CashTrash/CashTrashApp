@@ -51,9 +51,9 @@ function Register({ history }) {
   }
 
   return (
-    <div className="container my-4 mt-5 register round-sm">
-      <div className="row">
-        <div className="col-7 bg-white">
+    <div className="container register-card my-5 mx-auto">
+      <div className="row bg-white mx-3 round">
+        <div className="col bg-white round">
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -61,8 +61,8 @@ function Register({ history }) {
           >
             {({ errors, touched, isSubmitting }) => (
               <Form>
-                <div className="card-body">
-                  <h3 className="font-weight-bold pb-2">Register</h3>
+                <div className="px-3 pt-3">
+                  <h4 className="font-weight-bold text-blue pb-2">Register</h4>
                   <div className="form-row">
                     <div className="form-group col-6">
                       <label>First Name</label>
@@ -177,7 +177,7 @@ function Register({ history }) {
                           : "")
                       }
                     />
-                    <label htmlFor="acceptTerms" className="form-check-label">
+                    <label htmlFor="acceptTerms" className="text-blue form-check-label">
                       Accept Terms & Conditions
                     </label>
                     <ErrorMessage
@@ -197,8 +197,8 @@ function Register({ history }) {
                       )}
                       Register
                     </button>
-                    <span className="font-weight-bold"> Have an account? 
-                    <Link to="login"> Login</Link>
+                    <span className="font-weight-bold text-blue"> Have an account? 
+                    <Link to="login" className="text-gray"> Login</Link>
                     </span>
                   </div>
                 </div>
@@ -206,7 +206,7 @@ function Register({ history }) {
             )}
           </Formik>
         </div>
-        <div className="col-5"></div>
+        <div className="col-5 d-none d-md-block register-img round-img"></div>
       </div>
     </div>
     

@@ -32,51 +32,53 @@ function Login({ history, location }) {
     }
 
     return (
-        <div className=" login container-fluid py-3">
+        <div className=" login container py-3">
             <div class="row mt-4 pt-4 m-4">
-                <div  class="col-7 welcome">
-                    {/* <h2 className="font-weight-bold text-gray">CashTrash</h2> */}
-                    <h3 className="text-gray pt-4 font-weight-bold">Welcome Back!</h3>
-                    <h3 className="text-blue font-weight-bold">Login to your dashboard</h3>
-                    <img src="https://images.unsplash.com/photo-1545303234-a34381f8b5cf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=746&q=80" alt="trash full of cash" className="login-image" />
+                <div  class="col-5 md-col-6 welcome d-none d-md-block">
+                        <h2 className="text-blue pt-4 pb-4 my-auto font-weight-bold">Welcome Back!</h2>
                 </div>
-                <div class="col-5 mt-4 pt-4 bg-white round">
+                <div class="col pt-4 bg-white round-img d-flex align-items-start">
                     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                         {({ errors, touched, isSubmitting }) => (
-                        <Form>
+                        <Form className="login">
                             <div className="card-body my-4">
-                                <h4 className="text-blue form-group font-weight-bold">Login</h4>                 
+                                <h3 className="text-blue form-group">Sign into your account</h3>                 
                                 <div>
-                                    <div className="form-group">
+                                    <div className="form-group form-input">
                                         <Field name="email" type="text" placeholder="Your Email" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
                                         <ErrorMessage name="email" component="div" className="invalid-feedback" />
                                     </div>
 
-                                    <div className="form-group">
+                                    <div className="form-group round-form">
                                         <Field name="password" type="password" placeholder="Your Password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                                         <ErrorMessage name="password" component="div" className="invalid-feedback" />
                                     </div>
+                                    <div className="form-group">
+                                        <button type="submit" disabled={isSubmitting} className="login-btn btn btn-primary mb-4">
+                                            {isSubmitting && <span className="spinner-border spinner-border-sm"></span>}
+                                            Login
+                                        </button>
+                                    </div>
+                                        <Link to="forgot-password" className="text-gray">Forgot Password?</Link>
                                     <div className="form-row">
                                         <div className="form-group col">
                                             <p className="text-blue">Don't have an account?
-                                            <span><Link to="register" > Register</Link></span>
+                                            <span><Link to="register"className="text-gray" > Register</Link></span>
                                             </p>
                                         </div>
-                                        <div className="form-group col text-right">
-                                            <Link to="forgot-password">Forgot Password?</Link>
-                                        </div>
+                                        
                                     </div>
-                                    <button type="submit" disabled={isSubmitting} className="btn btn-primary float-right mb-4">
-                                        {isSubmitting && <span className="spinner-border spinner-border-sm"></span>}
-                                        SIGN IN
-                                    </button>
+                                    
                                 </div>
-                            </div>                     
+                                <span>
+                                    <Link to="register" className="text-gray" > Privacy . </Link>
+                                    <Link to="register" className="text-gray"> Terms</Link>
+                                </span>
+                            </div> 
                         </Form>
                         )}
                     </Formik>
                 </div>
-                <footer className="p-3 text-gray">Privacy / Terms</footer>
             </div>
         </div>
     )
