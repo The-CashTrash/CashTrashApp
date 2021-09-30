@@ -51,9 +51,16 @@ function Register({ history }) {
   }
 
   return (
-    <div className="container register-card my-5 mx-auto">
-      <div className="row bg-white mx-3 round">
-        <div className="col bg-white round">
+    <div className="container register-card">
+      <div className="row login mt-3 d-flex pt-5 justify-content-between">
+        <div  class="col-6">
+            <div className="text-blue font-weight-bold">
+                <p className="logo">LOGO</p>
+            </div>
+            <h3 className="text-gray font-weight-bold">It's your first time here?</h3>
+            <h3 className="text-blue font-weight-bold">Let's get you started</h3>
+        </div>
+        <div className="col login-card bg-white round-img">
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -61,14 +68,32 @@ function Register({ history }) {
           >
             {({ errors, touched, isSubmitting }) => (
               <Form>
-                <div className="px-3 pt-3">
-                  <h4 className="font-weight-bold text-blue pb-2">Register</h4>
-                  <div className="form-row">
-                    <div className="form-group col-6">
-                      <label>First Name</label>
+                <div className="card-body">
+                  <h6 className="text-blue pb-3 you-rock font-weight-bold form-group">You Rule!</h6>
+                  <div>
+                  <div className="form-group">
+                      <Field
+                        name="phoneNumber"
+                        type="number"
+                        placeholder="Phone Number"
+                        id="register-num"
+                        className={
+                          "form-control" +
+                          (errors.phoneNumber && touched.phoneNumber ? " is-invalid" : "")
+                        }
+                      />
+                      <ErrorMessage
+                        name="phoneNumber"
+                        component="div"
+                        className="invalid-feedback"
+                      />
+                    </div>
+                    <div className="form-group">
                       <Field
                         name="firstName"
                         type="text"
+                        placeholder="First Name"
+                        id="register-first"
                         className={
                           "form-control" +
                           (errors.firstName && touched.firstName ? " is-invalid" : "")
@@ -80,11 +105,12 @@ function Register({ history }) {
                         className="invalid-feedback"
                       />
                     </div>
-                    <div className="form-group col-6">
-                      <label>Last Name</label>
+                    <div className="form-group">
                       <Field
                         name="lastName"
                         type="text"
+                        placeholder="Last Name"
+                        id="register-last"
                         className={
                           "form-control" +
                           (errors.lastName && touched.lastName ? " is-invalid" : "")
@@ -98,10 +124,11 @@ function Register({ history }) {
                     </div>
                   </div>
                   <div className="form-group">
-                    <label>Email</label>
                     <Field
                       name="email"
                       type="text"
+                      placeholder="Enter Email"
+                      id="register-email"
                       className={
                         "form-control" +
                         (errors.email && touched.email ? " is-invalid" : "")
@@ -113,11 +140,11 @@ function Register({ history }) {
                       className="invalid-feedback"
                     />
                   </div>
-                  <div className="form-group">
-                    <label>BVN/NIN</label>
+                  {/* <div className="form-group">
                     <Field
                       name="bvnNin"
                       type="text"
+                      placeholder="BVN/NIN"
                       className={
                         "form-control" +
                         (errors.bvnNin && touched.bvnNin ? " is-invalid" : "")
@@ -128,13 +155,14 @@ function Register({ history }) {
                       component="div"
                       className="invalid-feedback"
                     />
-                  </div>
-                  <div className="form-row">
-                    <div className="form-group col">
-                      <label>Password</label>
+                  </div> */}
+                  <div>
+                    <div className="form-group">
                       <Field
                         name="password"
                         type="password"
+                        placeholder="Enter Password"
+                        id="register-password"
                         className={
                           "form-control" +
                           (errors.password && touched.password ? " is-invalid" : "")
@@ -146,11 +174,12 @@ function Register({ history }) {
                         className="invalid-feedback"
                       />
                     </div>
-                    <div className="form-group col">
-                      <label>Confirm Password</label>
+                    <div className="form-group">
                       <Field
                         name="confirmPassword"
                         type="password"
+                        placeholder="Confirm Password"
+                        id="register-confirm"
                         className={
                           "form-control" +
                           (errors.confirmPassword && touched.confirmPassword
@@ -178,7 +207,7 @@ function Register({ history }) {
                       }
                     />
                     <label htmlFor="acceptTerms" className="text-blue form-check-label">
-                      Accept Terms & Conditions
+                      I accept the Terms & Conditions
                     </label>
                     <ErrorMessage
                       name="acceptTerms"
@@ -186,28 +215,33 @@ function Register({ history }) {
                       className="invalid-feedback"
                     />
                   </div>
-                  <div className="form-group">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="btn btn-primary"
-                    >
-                      {isSubmitting && (
-                        <span className="spinner-border spinner-border-sm mr-1"></span>
-                      )}
-                      Register
-                    </button>
-                    <span className="font-weight-bold text-blue"> Have an account? 
-                    <Link to="login" className="text-gray"> Login</Link>
-                    </span>
+                  <div className="form-row px-1 py-1 d-flex justify-content-between">
+                      <h6 className="text-gray link align-self-center my-auto">Already have an account?
+                          <span><Link to="login" className="text-blue" > Sign in</Link></span>
+                      </h6>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="register-btn float-right btn btn-primary"
+                      >
+                        {isSubmitting && (
+                          <span className="spinner-border spinner-border-sm mr-1"></span>
+                        )}
+                        NEXT
+                      </button>                  
                   </div>
                 </div>
               </Form>
             )}
           </Formik>
         </div>
-        <div className="col-5 d-none d-md-block register-img round-img"></div>
       </div>
+      <footer className="row pl-3">
+          <span>
+              <Link to="register" className="text-gray" > Privacy . </Link>
+              <Link to="register" className="text-gray"> Terms</Link>
+          </span>
+      </footer>
     </div>
     
   );

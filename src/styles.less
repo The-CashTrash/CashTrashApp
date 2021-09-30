@@ -1,15 +1,8 @@
 // global styles
 body {
-    // font-family: 'Poppins', sans-serif;
     font-family: 'Lexend', sans-serif;
-    font-weight: bold;
-    background-color: #f2f8ff;
-    color: #717f86;
+    background-color: #F2F8FF;
 }
-
-// header {
-//     font-family: 'Lexend', sans-serif;
-// }
 
 a { cursor: pointer; }
 
@@ -24,37 +17,33 @@ a { cursor: pointer; }
     border-bottom: 1px solid #ccc;
 }
 
-.welcome {
-    background-image: url(https://images.unsplash.com/photo-1544991185-13fe5d113fe3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80);
-    background-size: cover;
-    background-position: center;    
-    text-align: center;
-    border-radius: 3% 0 0% 3%;
-}
-
 .welcome-text {
     background-color: rgba(255, 255, 255, 0.555);
 }
 
+.logo {
+    padding: 5%;
+    width: 100px;
+    text-align: center;
+    background-color: white;
+    margin-bottom: 10%;
+    border-radius: 3%;
+}
+
 .text-blue {
-    color: #184e70;
+    color: #053F63;
 }
 
 .text-gray {
-    color: #717f86;
+    color: #B3C5D0;
 }
 
 .round-img {
-    border-radius: 0 3% 3% 0;
+    border-radius: 20px 0 20px 20px;
 }
  
 .round {
     border-radius: 3%;
-    height: 100%;
-}
-
-.form-group {
-    padding-bottom: 5%;
 }
 
 .btn {
@@ -62,34 +51,67 @@ a { cursor: pointer; }
 }
 
 .card-body {
-    min-height: 50vh;
+    padding: 15% 10%;
+}
+
+.form-field {
+    border: 1px solid white;
+}
+
+#login-email, #login-password, #register-num, #register-first, #register-last, 
+#register-email, #register-password, #register-confirm {
+    border: 2px solid #C7D0DB;
+    border-radius: 6px 0px 6px 6px;
+    opacity: 1;
+    padding: 23px;
+}
+
+#login-password {
+    margin-top: 47px;
+}
+
+// #login-password {
+//     background: transparent url('/images/Icon ionic-ios-eye.png') 0% 0% no-repeat padding-box;
+// }
+
+#login-email::placeholder, #login-password::placeholder, #register-num::placeholder, 
+#register-first::placeholder, #register-last::placeholder, #register-email::placeholder, 
+#register-password::placeholder, #register-confirm::placeholder {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #C7D0DB;
+    opacity: 1;
+}
+
+.you-rock {
+    font-size: 14px; 
+}
+
+.link {
+    font-size: 12px;
+}
+
+.login-btn, .register-btn {
+    background: #388FFF 0% 0% no-repeat padding-box;
+    border-radius: 5px 0px 5px 5px;
+    opacity: 1;
+    font-size: 14px;
+    font-weight: 300;
+    width: 110px
 }
 
 .login-btn {
-    width: 100%;
+    margin-top: 80px;
 }
+
 .login {
-    width: 100%;
+    height: 85vh;
 }
 
-.login-image {
-    border-radius: 2%;
-    opacity: 90%;
-    width: 100%;
-    height: 76%;
-    max-height: 550px;
-}
-
-.register-img {
-    background-image: url(https://images.unsplash.com/photo-1544991185-13fe5d113fe3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80);
-    background-size: cover;
-    background-position: center;    
-}
-
-.register-card {
-    max-height: 80vh;
-    border-radius: 3% 0 0% 3%;
-}
+// .register-card {
+//     max-height: 80vh;
+//     border-radius: 3% 0 0% 3%;
+// }
 
 .forgot-password, .reset-password {
     padding: 5% 0;
@@ -97,7 +119,6 @@ a { cursor: pointer; }
 }
 
 #forgot-field {
-    // background-color: rgba(230, 230, 230, 0.164);
     padding: 10px;
     border-radius: 3%;
     border: 2px solid rgb(240, 240, 240);
@@ -109,11 +130,11 @@ a { cursor: pointer; }
     font-size: 0.8em;
 }
 
-@media (min-width: 992px){
-    .card-body {
-        height: 65vh;
-    }
-    .login-image {
-        max-height: 71vh;
-    }
-}
+// @media (min-width: 992px){
+//     .card-body {
+//         height: 65vh;
+//     }
+//     .login-image {
+//         max-height: 71vh;
+//     }
+// }

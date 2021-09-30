@@ -32,54 +32,57 @@ function Login({ history, location }) {
     }
 
     return (
-        <div className=" login container py-3">
-            <div class="row mt-4 pt-4 m-4">
-                <div  class="col-5 md-col-6 welcome d-none d-md-block">
-                        <h2 className="text-blue pt-4 pb-4 my-auto font-weight-bold">Welcome Back!</h2>
+        <div className=" container">
+            <div class="row login mt-3 d-flex pt-5 justify-content-between">
+                <div  class="col-6">
+                    <div className="text-blue font-weight-bold">
+                        <p className="logo">LOGO</p>
+                    </div>
+                    <h3 className="text-gray font-weight-bold">Welcome Back!</h3>
+                    <h3 className="text-blue font-weight-bold">Login to your dashboard</h3>
                 </div>
-                <div class="col pt-4 bg-white round-img d-flex align-items-start">
+                <div class="col login-card bg-white round-img">
                     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                         {({ errors, touched, isSubmitting }) => (
-                        <Form className="login">
-                            <div className="card-body my-4">
-                                <h3 className="text-blue form-group">Sign into your account</h3>                 
+                        <Form className="">
+                            <div className="card-body">
+                                <h6 className="text-blue pb-3 you-rock font-weight-bold form-group">You Rock!</h6>
                                 <div>
                                     <div className="form-group form-input">
-                                        <Field name="email" type="text" placeholder="Your Email" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
-                                        <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                        <Field name="email" type="text" placeholder="Enter Email" id="login-email" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                                        <ErrorMessage name="email" component="div"  className="invalid-feedback" />
                                     </div>
 
-                                    <div className="form-group round-form">
-                                        <Field name="password" type="password" placeholder="Your Password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                    <div className="form-group">
+                                        <Field name="password" type="password" placeholder="Your Password" id="login-password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                        
                                         <ErrorMessage name="password" component="div" className="invalid-feedback" />
                                     </div>
+                                    <div className="form-row pt-2 px-1 d-flex justify-content-between">
+                                        <h6 className="text-gray link">Don't have an account?
+                                            <span><Link to="register"className="text-blue" > Sign up</Link></span>
+                                        </h6>
+                                        <Link to="forgot-password" className="text-gray link ">Forgot Password?</Link>
+                                    </div>
                                     <div className="form-group">
-                                        <button type="submit" disabled={isSubmitting} className="login-btn btn btn-primary mb-4">
+                                        <button type="submit" disabled={isSubmitting} className="login-btn float-right btn btn-primary">
                                             {isSubmitting && <span className="spinner-border spinner-border-sm"></span>}
-                                            Login
+                                            SIGN IN
                                         </button>
-                                    </div>
-                                        <Link to="forgot-password" className="text-gray">Forgot Password?</Link>
-                                    <div className="form-row">
-                                        <div className="form-group col">
-                                            <p className="text-blue">Don't have an account?
-                                            <span><Link to="register"className="text-gray" > Register</Link></span>
-                                            </p>
-                                        </div>
-                                        
-                                    </div>
-                                    
+                                    </div>                                    
                                 </div>
-                                <span>
-                                    <Link to="register" className="text-gray" > Privacy . </Link>
-                                    <Link to="register" className="text-gray"> Terms</Link>
-                                </span>
                             </div> 
                         </Form>
                         )}
                     </Formik>
                 </div>
             </div>
+            <footer className="row pl-3">
+                <span>
+                    <Link to="register" className="text-gray" > Privacy . </Link>
+                    <Link to="register" className="text-gray"> Terms</Link>
+                </span>
+            </footer>
         </div>
     )
 }

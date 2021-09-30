@@ -6,8 +6,8 @@ function Home() {
     const user = accountService.userValue;
     
     return (
-        <div className="p-4">
-            <div className="container">
+        <div className="">
+            <div className="">
                 <h1>Hi {user.firstName}!</h1>
                 <p>You're logged into CashTrash App</p>
             </div>
