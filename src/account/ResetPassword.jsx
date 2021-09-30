@@ -61,30 +61,31 @@ function ResetPassword({ history }) {
         }
 
         return (
-            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                {({ errors, touched, isSubmitting }) => (
-                    <Form className="col bg-white mx-auto px-4 round mt-4">
-                        <h4 className="font-weight-bold pt-3 text-blue">Reset Password</h4>
-                        <div className="form-group">
-                            <Field name="password" type="password" placeholder="Password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
-                            <ErrorMessage name="password" component="div" className="invalid-feedback" />
-                        </div>
-                        <div className="form-group">
-                            <Field name="confirmPassword" type="password" placeholder="Confirm Password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
-                            <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
-                        </div>
-                        <div className="form-row">
-                            <div className="form-group col">
-                                <button type="submit" disabled={isSubmitting} className="btn btn-primary">
-                                    {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                    Reset Password
-                                </button>
-                                <Link to="login" className="btn btn-link">Back to Login</Link>
+            <div className="col forgot-card bg-white round-img">
+                <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                    {({ errors, touched, isSubmitting }) => (
+                        <Form className="">
+                            <div className="card-body">
+                                <h6 className="text-blue you-rock font-weight-bold form-group">We're here to help</h6>
+                                <div className="form-group">
+                                    <Field name="password" type="password" placeholder="Password" id="reset-password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group">
+                                    <Field name="confirmPassword" type="password" placeholder="Confirm Password" id="reset-confirm" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
+                                    <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
+                                </div>
+                                <div className="form-group">
+                                    <button type="submit" disabled={isSubmitting} className="login-btn float-right btn btn-primary">
+                                        {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                                        RESET
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </Form>
-                )}
-            </Formik>
+                        </Form>
+                    )}
+                </Formik>
+            </div>
         );
     }
 
@@ -100,13 +101,19 @@ function ResetPassword({ history }) {
     }
 
     return (
-        <div className="container reset-password mx-auto round">
-            <div className=" px-3 row">
-                <div className="d-none d-md-block col-6 my-auto">
-                    <h2 className="font-weight-bold">Reset Password</h2>
+        <div className="container-fluid mx-3 px-5">
+            <div className="row login mt-3 pt-5 d-flex justify-content-between">
+                <div class="col-6 pl-5 ml-3 d-none d-md-block">
+                    <div className="text-blue font-weight-bold">
+                        <p className="logo">LOGO</p>
+                    </div>
+                    <h3 className="text-gray font-weight-bold">Reset password</h3>
                 </div>
-                <div className="col-6 mt-5 card-body d-none d-md-block">{getBody()}</div>
-                <div className="col mt-5 card-body d-md-none">{getBody()}</div>
+                <div className="col-12 d-block d-md-none pb-2">
+                    <h3 className="text-gray font-weight-bold">Reset password</h3>
+                </div>
+                <div className="col mx-4 d-flex align-items-center">{getBody()}</div>
+                {/* <div className="col mt-5 card-body d-md-none">{getBody()}</div> */}
             </div>
         </div>
     )

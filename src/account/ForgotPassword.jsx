@@ -25,37 +25,54 @@ function ForgotPassword() {
     }
 
     return (
-        <div className="forgot-password container mx-auto round">
-            <div className="row px-5 forgot-password">
-                <div className="d-none d-md-block col-6 my-auto">
-                    <h2 className="font-weight-bold text-blue">Forgot Password?</h2>
+        <div className="container-fluid mx-3 px-5">
+            <div className="row login mt-3 pt-5 d-flex justify-content-between">
+                <div class="col-6 pl-5 ml-3 d-none d-md-block">
+                    <div className="text-blue font-weight-bold">
+                        <p className="logo">LOGO</p>
+                    </div>
+                    <h3 className="text-gray font-weight-bold">Forgot password</h3>
+                    <h3 className="text-blue font-weight-bold">Let's help you recover it</h3>
                 </div>
-                <div className=" col mx-auto">
-                    <h5 className=" d-md-none">Forgot Password?</h5>
-                    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                        {({ errors, touched, isSubmitting }) => (
-                            <Form className="bg-white round">
-                                <div className="card-body">
-                                <h5 className="py-2 font-weight-bold text-blue">Kindly enter your email address</h5>
-                                    <div className="form-group">
-                                        <Field name="email" type="text" id="forgot-field" placeholder="Email address" className={'form-control' + 'field' + (errors.email && touched.email ? ' is-invalid' : '')} />
-                                        <ErrorMessage name="email" component="div" className="invalid-feedback" />
-                                    </div>
-                                    <div className="form-row">
-                                        <div className="form-group d-flex justify-content-between col">
-                                            <button type="submit" disabled={isSubmitting} className="btn btn-primary">
+                <div className="col-12 d-block d-md-none pb-2">
+                    <h3 className="text-gray font-weight-bold">Forgot password</h3>
+                    <h3 className="text-blue font-weight-bold">Let's help you recover it</h3>
+                </div>
+                <div className="col mx-4 d-flex align-items-center">
+                    <div className="col forgot-card bg-white round-img">
+                        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                            {({ errors, touched, isSubmitting }) => (
+                                <Form className="">
+                                    <div className="card-body">
+                                        <h6 className="text-blue you-rock font-weight-bold form-group">We're here to help</h6>
+                                        <div className="form-group">
+                                            <Field name="email" type="text" id="forgot-field" placeholder="Enter Email" className={'form-control' + 'field' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                                            <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                        </div>
+                                        <div className="form-row pt-2 px-1 d-flex justify-content-between">
+                                            <h6 className="text-gray link">I remember my password
+                                                <span><Link to="login"className="text-blue font-weight-bold" > Sign in</Link></span>
+                                            </h6>
+                                        </div>
+                                        <div className="form-group">
+                                            <button type="submit" disabled={isSubmitting} className=" login-btn float-right btn btn-primary">
                                                 {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                                Submit
+                                                NEXT
                                             </button>
-                                            <div><Link to="login" className="font-weight-bold btn-link"> Back to Login</Link></div>
                                         </div>
                                     </div>
-                                </div>
-                            </Form>
-                        )}
-                    </Formik> 
+                                </Form>
+                            )}
+                        </Formik> 
+                    </div>
                 </div>
             </div>
+            <footer className="row pl-4 ml-4">
+            <span>
+                <Link to="register" className="text-gray" >Privacy . </Link>
+                <Link to="register" className="text-gray"> Terms</Link>
+            </span>
+        </footer>
         </div>
     )
 }

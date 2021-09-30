@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import { accountService, alertService } from "@/_api_services";
+import { accountService, } from "@/_api_services";
 
 function Register({ history }) {
   const initialValues = {
+    phoneNumber:"",
     firstName: "",
     lastName: "",
     email: "",
@@ -16,11 +17,15 @@ function Register({ history }) {
     acceptTerms: false,
   };
 
+  const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
   const validationSchema = Yup.object().shape({
+    phoneNumber: Yup.string()
+      .matches(phoneRegExp, 'Phone number is not valid')
+      .required("Phone Number is required"),
     firstName: Yup.string().required("First Name is required"),
     lastName: Yup.string().required("Last Name is required"),
     email: Yup.string().email("Email is invalid").required("Email is required"),
-    bvnNin: Yup.string().required("BVN/NIN is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
@@ -29,7 +34,7 @@ function Register({ history }) {
       .required("Confirm Password is required"),
     acceptTerms: Yup.bool().oneOf(
       [true],
-      "Accept Terms & Conditions is required"
+      "Required"
     ),
   });
 
@@ -38,29 +43,33 @@ function Register({ history }) {
     accountService
       .register(fields)
       .then(() => {
-        alertService.success(
-          "Registration successful, please check your email for verification instructions",
-          { keepAfterRouteChange: true }
-        );
-        history.push("login");
+        // alertService.success(
+        //   "Registration successful, please check your email for verification instructions",
+        //   { keepAfterRouteChange: true }
+        // );
+        history.push("verify-otp");
       })
       .catch((error) => {
         setSubmitting(false);
-        alertService.error(error);
+        // alertService.error(error);
       });
   }
 
   return (
-    <div className="container register-card">
+    <div className="container-fluid mx-3 px-5">
       <div className="row login mt-3 d-flex pt-5 justify-content-between">
-        <div  class="col-6">
-            <div className="text-blue font-weight-bold">
+        <div  class="col-6 pl-5 ml-3 d-none d-md-block">
+            <div className="text-blue d-flex align-items-center font-weight-bold">
                 <p className="logo">LOGO</p>
             </div>
             <h3 className="text-gray font-weight-bold">It's your first time here?</h3>
             <h3 className="text-blue font-weight-bold">Let's get you started</h3>
         </div>
-        <div className="col login-card bg-white round-img">
+        <div className="col-12 d-block d-md-none">
+            <h3 className="text-gray font-weight-bold">It's your first time here?</h3>
+            <h3 className="text-blue font-weight-bold">Let's get you started</h3>
+        </div>
+        <div className="col mx-4 register-card bg-white round-img">
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -69,12 +78,12 @@ function Register({ history }) {
             {({ errors, touched, isSubmitting }) => (
               <Form>
                 <div className="card-body">
-                  <h6 className="text-blue pb-3 you-rock font-weight-bold form-group">You Rule!</h6>
+                  <h6 className="text-blue you-rock font-weight-bold form-group">You Rule!</h6>
                   <div>
                   <div className="form-group">
                       <Field
                         name="phoneNumber"
-                        type="number"
+                        type="tel"
                         placeholder="Phone Number"
                         id="register-num"
                         className={
@@ -85,7 +94,7 @@ function Register({ history }) {
                       <ErrorMessage
                         name="phoneNumber"
                         component="div"
-                        className="invalid-feedback"
+                        className="link invalid-feedback"
                       />
                     </div>
                     <div className="form-group">
@@ -102,7 +111,7 @@ function Register({ history }) {
                       <ErrorMessage
                         name="firstName"
                         component="div"
-                        className="invalid-feedback"
+                        className="link invalid-feedback"
                       />
                     </div>
                     <div className="form-group">
@@ -119,7 +128,7 @@ function Register({ history }) {
                       <ErrorMessage
                         name="lastName"
                         component="div"
-                        className="invalid-feedback"
+                        className=" link invalid-feedback"
                       />
                     </div>
                   </div>
@@ -137,25 +146,9 @@ function Register({ history }) {
                     <ErrorMessage
                       name="email"
                       component="div"
-                      className="invalid-feedback"
+                      className="link invalid-feedback"
                     />
                   </div>
-                  {/* <div className="form-group">
-                    <Field
-                      name="bvnNin"
-                      type="text"
-                      placeholder="BVN/NIN"
-                      className={
-                        "form-control" +
-                        (errors.bvnNin && touched.bvnNin ? " is-invalid" : "")
-                      }
-                    />
-                    <ErrorMessage
-                      name="bvnNin"
-                      component="div"
-                      className="invalid-feedback"
-                    />
-                  </div> */}
                   <div>
                     <div className="form-group">
                       <Field
@@ -171,7 +164,7 @@ function Register({ history }) {
                       <ErrorMessage
                         name="password"
                         component="div"
-                        className="invalid-feedback"
+                        className="link invalid-feedback"
                       />
                     </div>
                     <div className="form-group">
@@ -190,11 +183,11 @@ function Register({ history }) {
                       <ErrorMessage
                         name="confirmPassword"
                         component="div"
-                        className="invalid-feedback"
+                        className="link invalid-feedback"
                       />
                     </div>
                   </div>
-                  <div className="form-group form-check">
+                  <div className="form-group link form-check">
                     <Field
                       type="checkbox"
                       name="acceptTerms"
@@ -212,22 +205,22 @@ function Register({ history }) {
                     <ErrorMessage
                       name="acceptTerms"
                       component="div"
-                      className="invalid-feedback"
+                      className="d-flex link invalid-feedback"
                     />
                   </div>
-                  <div className="form-row px-1 py-1 d-flex justify-content-between">
-                      <h6 className="text-gray link align-self-center my-auto">Already have an account?
-                          <span><Link to="login" className="text-blue" > Sign in</Link></span>
+                  <div className="form-row px-1 mb-2 py-1 d-flex justify-content-between">
+                      <h6 className="text-gray my-1 link align-self-center my-auto">Already have an account?
+                          <span><Link to="login" className="text-blue font-weight-bold" > Sign in</Link></span>
                       </h6>
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="register-btn float-right btn btn-primary"
+                        className="register-btn my-1 float-right btn btn-primary"
                       >
                         {isSubmitting && (
                           <span className="spinner-border spinner-border-sm mr-1"></span>
                         )}
-                        NEXT
+                        Sign Up
                       </button>                  
                   </div>
                 </div>
@@ -236,14 +229,13 @@ function Register({ history }) {
           </Formik>
         </div>
       </div>
-      <footer className="row pl-3">
+      <footer className="row pl-4 ml-4">
           <span>
-              <Link to="register" className="text-gray" > Privacy . </Link>
+              <Link to="register" className="text-gray" >Privacy . </Link>
               <Link to="register" className="text-gray"> Terms</Link>
           </span>
       </footer>
     </div>
-    
   );
 }
 
