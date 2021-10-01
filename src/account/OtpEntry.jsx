@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function OtpEntry() {
+    
     return (
         <div className="container-fluid mx-3 px-5">
             <div className="row login mt-3 pt-5 d-flex justify-content-between">
@@ -18,36 +19,35 @@ function OtpEntry() {
                 </div>
                 <div className="col mx-4 d-flex align-items-center">
                     <div className="col forgot-card bg-white round-img">
-                        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                            {({ errors, touched, isSubmitting }) => (
+                        {/* <Formik>
+                            {({}) => (
                                 <Form className="">
                                     <div className="card-body">
                                         <h6 className="text-blue you-rock font-weight-bold form-group">Almost there</h6>
                                         <div className="form-group">
-                                            <Field name="email" type="number" id="otp-field" placeholder="Enter OTP" className={'form-control' + 'field' + (errors.email && touched.email ? ' is-invalid' : '')} />
-                                            <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                            <Field name="otp" type="number" id="otp-field" placeholder="Enter OTP" />
                                         </div>
                                         <div>
-                                        <Link to="login" className="">
-                                            <button className="login-btn float-right btn btn-primary">
-                                                PROCEED
-                                            </button>
-                                        </Link>
-                                    </div>
+                                            <Link to="login" className="">
+                                                <button className="login-btn float-right btn btn-primary">
+                                                    PROCEED
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </Form>
                             )}
-                        </Formik> 
+                        </Formik>  */}
                     </div>
                 </div>
             </div>
             <footer className="row pl-4 ml-4">
-            <span>
-                <Link to="register" className="text-gray" >Privacy . </Link>
-                <Link to="register" className="text-gray"> Terms</Link>
-            </span>
-        </footer>
-    </div>
+                <span>
+                    <Link to="register" className="text-gray" >Privacy . </Link>
+                    <Link to="register" className="text-gray"> Terms</Link>
+                </span>
+            </footer>
+        </div>
      )
 }
 

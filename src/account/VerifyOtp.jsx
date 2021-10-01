@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 
 function VerifyOtp() {
     return (
-        <div className=" container-fluid d-flex justify-content-center align-items-center text-aligncenter otp">
+        <div className=" container-fluid d-flex justify-content-center align-items-center otp">
             <div className="otp-verify">
                 <h1 className="text-white pb-2">Congratulations Sarah</h1>
                 <h5 className="otp-text">You have successfully signed up for CashTrash.</h5>
                 <h5 className="otp-text">An OTP has been sent to your email</h5>
                 <br />
                 <div>
-                    <Link to="otp-entry" className="">
+                    <Link to="enter-otp" className="">
                         <button className="btn verify-btn btn-primary">
                             PROCEED
                         </button>

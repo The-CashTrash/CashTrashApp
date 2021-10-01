@@ -26,7 +26,7 @@ function Account({ history, match }) {
                 <Route path={`${path}/login`} component={Login} />
                 <Route path={`${path}/register`} component={Register} />
                 <Route path={`${path}/verify-otp`} component={VerifyOtp} />
-                <Route path={`${path}/otp-entry`} component={OtpEntry} />
+                <Route path={`${path}/enter-otp`} component={OtpEntry} />
                 {/* <Route path={`${path}/verify-email`} component={VerifyEmail} /> */}
                 <Route path={`${path}/forgot-password`} component={ForgotPassword} />
                 <Route path={`${path}/reset-password`} component={ResetPassword} />
