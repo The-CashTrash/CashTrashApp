@@ -17,16 +17,16 @@ function Nav() {
     if (!user) return null;
 
     return (
-        <div className="nav pt-5 px-4">
-            <nav className="navbar pt-5 d-block navbar-expand">
+        <div className="nav px-4">
+            <nav className="navbar d-md-block navbar-expand">
                 <div className="text-blue font-weight-bold">
                     <p className="logo">LOGO</p>
                 </div>
-                <h6 className="text-gray pb-2">Welcome 
+                <h6 className="text-gray welcome-home pb-2">Welcome 
                     <span className="text-blue font-weight-bold"> {user.firstName}</span> 
                 </h6>
                 <div className="navbar-nav">
-                    <div className="text-gray">                    
+                    <div className="text-gray d-flex d-md-block">                    
                         <NavLink exact to="/" className="nav-active nav-item nav-link">
                             <h5 className="nav-active active">Home</h5>
                         </NavLink>
