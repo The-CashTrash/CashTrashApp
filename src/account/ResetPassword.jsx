@@ -66,9 +66,9 @@ function ResetPassword({ history }) {
                     {({ errors, touched, isSubmitting }) => (
                         <Form className="">
                             <div className="card-body">
-                                <h6 className="text-blue you-rock font-weight-bold form-group">We're here to help</h6>
+                                <h6 className="text-blue you-rock font-weight-bold form-group">Congratulations</h6>
                                 <div className="form-group">
-                                    <Field name="password" type="password" placeholder="Password" id="reset-password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                    <Field name="password" type="password" placeholder="Enter New Password" id="reset-password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                                     <ErrorMessage name="password" component="div" className="invalid-feedback" />
                                 </div>
                                 <div className="form-group">
@@ -104,17 +104,24 @@ function ResetPassword({ history }) {
         <div className="container-fluid mx-3 px-5">
             <div className="row login mt-3 pt-5 d-flex justify-content-between">
                 <div class="col-6 pl-5 ml-3 d-none d-md-block">
-                    <div className="text-blue font-weight-bold">
-                        <p className="logo">LOGO</p>
+                    <div className="text-blue d-flex align-items-center font-weight-bold">
+                        <img src="src/images/Logo big.svg" alt="" className="logo" />
                     </div>
-                    <h3 className="text-gray font-weight-bold">Reset password</h3>
+                    <h3 className="text-blue font-weight-bold">Reset password</h3>
+                    <h3 className="text-gray font-weight-bold">Enter your new password</h3>
                 </div>
-                <div className="col-12 d-block d-md-none pb-2">
-                    <h3 className="text-gray font-weight-bold">Reset password</h3>
+                <div className="col-12 d-block d-md-none">
+                    <h3 className="text-blue font-weight-bold">Reset password</h3>
+                    <h3 className="text-gray font-weight-bold pb-2">Enter your new password</h3>
                 </div>
                 <div className="col mx-4 d-flex align-items-center">{getBody()}</div>
-                {/* <div className="col mt-5 card-body d-md-none">{getBody()}</div> */}
             </div>
+            <footer className="row pl-4 ml-4">
+                <span>
+                    <Link to="register" className="text-gray" >Privacy . </Link>
+                    <Link to="register" className="text-gray"> Terms</Link>
+                </span>
+            </footer>
         </div>
     )
 }

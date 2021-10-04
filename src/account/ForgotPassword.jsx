@@ -28,8 +28,8 @@ function ForgotPassword() {
         <div className="container-fluid mx-3 px-5">
             <div className="row login mt-3 pt-5 d-flex justify-content-between">
                 <div class="col-6 pl-5 ml-3 d-none d-md-block">
-                    <div className="text-blue font-weight-bold">
-                        <p className="logo">LOGO</p>
+                    <div className="text-blue d-flex align-items-center font-weight-bold">
+                        <img src="src/images/Logo big.svg" alt="" className="logo" />
                     </div>
                     <h3 className="text-gray font-weight-bold">Forgot password</h3>
                     <h3 className="text-blue font-weight-bold">Let's help you recover it</h3>
@@ -68,11 +68,11 @@ function ForgotPassword() {
                 </div>
             </div>
             <footer className="row pl-4 ml-4">
-            <span>
-                <Link to="register" className="text-gray" >Privacy . </Link>
-                <Link to="register" className="text-gray"> Terms</Link>
-            </span>
-        </footer>
+                <span>
+                    <Link to="register" className="text-gray" >Privacy . </Link>
+                    <Link to="register" className="text-gray"> Terms</Link>
+                </span>
+            </footer>
         </div>
     )
 }
