@@ -59,11 +59,11 @@ function Register({ history }) {
     <div className="container-fluid mx-3 px-5">
       <div className="row login mt-3 d-flex pt-5 justify-content-between">
         <div  class="col-6 pl-5 ml-3 d-none d-md-block">
-            <div className="text-blue d-flex align-items-center font-weight-bold">
-                <p className="logo">LOGO</p>
-            </div>
-            <h3 className="text-gray font-weight-bold">It's your first time here?</h3>
-            <h3 className="text-blue font-weight-bold">Let's get you started</h3>
+          <div className="text-blue d-flex align-items-center font-weight-bold">
+              <img src="src/images/Logo big.svg" alt="" className="logo" />
+          </div>
+          <h3 className="text-gray font-weight-bold">It's your first time here?</h3>
+          <h3 className="text-blue font-weight-bold">Let's get you started</h3>
         </div>
         <div className="col-12 d-block d-md-none">
             <h3 className="text-gray font-weight-bold">It's your first time here?</h3>
